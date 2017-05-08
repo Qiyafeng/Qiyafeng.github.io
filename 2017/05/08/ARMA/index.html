@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 音乐 | 微雨竹窗</title>
+  <title>Time Series Analysis with R for ARMA | 微雨竹窗</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="微雨竹窗">
-<meta property="og:url" content="http://yoursite.com/tags/音乐/index.html">
+  <meta name="description" content="1、加载所需要的包 1234library(readxl)library(forecast)library(TSA)library(lmtest) 2、读取excel文档中的数据 1mydata=read_excel(&quot;文档位置&quot;,sheet = 1) 3、转换成时间序列 1tsdata &amp;lt;- ts(mydata) 4、差分分析方法一 1234diff1&amp;lt;-diff(tsdata)pl">
+<meta name="keywords" content="R,时间序列分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Time Series Analysis with R for ARMA">
+<meta property="og:url" content="http://yoursite.com/2017/05/08/ARMA/index.html">
 <meta property="og:site_name" content="微雨竹窗">
+<meta property="og:description" content="1、加载所需要的包 1234library(readxl)library(forecast)library(TSA)library(lmtest) 2、读取excel文档中的数据 1mydata=read_excel(&quot;文档位置&quot;,sheet = 1) 3、转换成时间序列 1tsdata &amp;lt;- ts(mydata) 4、差分分析方法一 1234diff1&amp;lt;-diff(tsdata)pl">
+<meta property="og:updated_time" content="2017-05-08T03:25:34.882Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微雨竹窗">
+<meta name="twitter:title" content="Time Series Analysis with R for ARMA">
+<meta name="twitter:description" content="1、加载所需要的包 1234library(readxl)library(forecast)library(TSA)library(lmtest) 2、读取excel文档中的数据 1mydata=read_excel(&quot;文档位置&quot;,sheet = 1) 3、转换成时间序列 1tsdata &amp;lt;- ts(mydata) 4、差分分析方法一 1234diff1&amp;lt;-diff(tsdata)pl">
   
     <link rel="alternative" href="/atom.xml" title="微雨竹窗" type="application/atom+xml">
   
@@ -149,60 +154,174 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ARMA" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/21/逆流成河的悲伤/" class="archive-article-date">
-  	<time datetime="2017-04-21T15:00:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/21/逆流成河的悲伤/">逆流成河的悲伤</a>
+    <h1 class="article-title" itemprop="name">
+      Time Series Analysis with R for ARMA
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/05/08/ARMA/" class="archive-article-date">
+  	<time datetime="2017-05-08T03:25:34.204Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、加载所需要的包</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(readxl)</div><div class="line"><span class="keyword">library</span>(forecast)</div><div class="line"><span class="keyword">library</span>(TSA)</div><div class="line"><span class="keyword">library</span>(lmtest)</div></pre></td></tr></table></figure>
+<p>2、读取excel文档中的数据</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mydata=read_excel(<span class="string">"文档位置"</span>,sheet = <span class="number">1</span>)</div></pre></td></tr></table></figure>
+<p>3、转换成时间序列</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tsdata &lt;- ts(mydata)</div></pre></td></tr></table></figure>
+<p>4、差分分析<br>方法一</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">diff1&lt;-diff(tsdata)</div><div class="line">plot(diff1,type=<span class="string">"o"</span>)</div><div class="line">diff2&lt;-diff(tsdata2)</div><div class="line">plot(diff2,type=<span class="string">"o"</span>)</div></pre></td></tr></table></figure>
+<p>取对数<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">diff1&lt;-diff(log(tsdata))</div><div class="line">plot(diff1,type=<span class="string">"o"</span>)</div><div class="line">diff2&lt;-diff(log(tsdata),<span class="number">2</span>)</div><div class="line">plot(diff2,type=<span class="string">"o"</span>)</div></pre></td></tr></table></figure></p>
+<p>方法二</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ndiffs(tsdata)</div></pre></td></tr></table></figure>
+<p>5、求p,q值<br>方法一</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">acf(tsdata)</div><div class="line">pacf(tsdata)</div></pre></td></tr></table></figure>
+<p>方法二</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eacf(tsdata)</div></pre></td></tr></table></figure>
+<p>6、可以直接求出p,d,q的值</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">auto.arima(tsdata)</div><div class="line">sol &lt;- stats::arima((tsdata,order=c(p,d,q))</div></pre></td></tr></table></figure>
+<p>7、预测50的值</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">forecast &lt;- forecast.Arima(sol,h=<span class="number">50</span>,level=c(<span class="number">99.5</span>))</div><div class="line">forecast</div><div class="line">plot.forecast(forecast)</div></pre></td></tr></table></figure>
+<p>8、tsdiag检验</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tsdiag(sol)</div></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">R,时间序列分析</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/08/ARMA/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/05/04/精进的注意力/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          使用小书匠传递到印象笔记
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -225,9 +344,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
@@ -291,7 +410,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游记</a>
+                <a href="javascript:void(0)" class="js-tag color4">R,时间序列分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -299,7 +418,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">音乐</a>
+                <a href="javascript:void(0)" class="js-tag color5">新建,模板,小书匠</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游记</a>
               </li>
             
             <div class="clearfix"></div>
